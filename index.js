@@ -6,7 +6,7 @@ try {
   const targeting_type = core.getInput('targeting-type');
   if(targeting_type != "pull_request" && targeting_type != "push"){
     console.log(`syntax error - targeting_type`)
-    throw "targeting-type must be pull_request or push"
+    throw new Error("targeting-type must be pull_request or push")
   }
   var matched = false;
   targeting_branches.forEach(function(elt){
@@ -17,7 +17,7 @@ try {
 
   if(!matched){
     console.log(`check failed`)
-    throw "targeting branch did not match any provided"
+    throw new Error("targeting branch did not match any provided")
   }
 
   console.log(`check passed`)
