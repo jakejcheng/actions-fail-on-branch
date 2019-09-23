@@ -11,8 +11,10 @@ try {
   // Get the JSON webhook payload for the event that triggered the workflow
   const payload = JSON.stringify(github, undefined, 2)
   console.log(`The event payload: ${payload}`);
+  if(github.context.payload.pull_request.head.ref != "develop"){
+    console.log(`Pull request into master from branch develop only.`)
+    core.setFailed(`Pull request into master from branch develop only.`)
+  }
 } catch (error) {
   core.setFailed(error.message);
 }
-
-core.setFailed(`Action failed`);
