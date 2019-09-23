@@ -1,5 +1,14 @@
-name: 'Fail on branch'
+name: 'Enforce specific targeting branch'
 description: 'Fails workflow when the event branch is not the one specified'
+inputs:
+  targeting-branches:  # id of input
+    description: 'Targeting branches (split by comma)'
+    required: true
+    default: 'test'
+  targeting-type:
+    description: 'Targeting type (pull_request or push)'
+    required: true
+    default: 'pull_request'
 runs:
   using: 'node12'
   main: 'index.js'
