@@ -1,24 +1,20 @@
-# actions-fail-on-branch
-Fails workflow when the event branch is not the one specified
+# actions-verify-event-branch
 
-# Hello world javascript action
-
-This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
+A Github Action that will fail the workflow on push/pull_request when the event branch is not the one specified.
 
 ## Inputs
 
-### `who-to-greet`
+### `targeting-branch`
 
-**Required** The name of the person to greet. Default `"World"`.
+**Required** The names of branches to allow action on or fail otherwise. Default `"test"`.
 
-## Outputs
+### `targeting-type`
 
-### `time`
-
-The time we greeted you.
+**Required** The type of event to trigger the action on. Must be either `"push"` or `"pull_request"`. Default `"pull_request"`.
 
 ## Example usage
 
-uses: actions/hello-world-javascript-action@v1
+uses: actions/actions-verify-event-branch@`commit hash/release`
 with:
-  who-to-greet: 'Mona the Octocat'
+  targeting-branch: develop,test
+  targeting-type: pull_request
