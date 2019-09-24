@@ -16,5 +16,5 @@ A Github Action that will fail the workflow on push/pull_request when the event 
 
 uses: actions/actions-verify-event-branch@`commit hash/release`  
 with:  
-  targeting-branch: develop,test  
-  targeting-type: pull_request
+    targeting-branch: develop,test  
+    targeting-type: pull_request
